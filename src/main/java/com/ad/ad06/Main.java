@@ -2,9 +2,9 @@ package com.ad.ad06;
 
 import com.ad.exception.ADException;
 import com.ad.json.JsonUtiles;
-import com.ad.json.pojo.DatosDriver;
-import com.ad.thread.GardarArchivosDB;
-import com.ad.thread.NotificacionesPostgresSQL;
+import com.ad.json.pojo.DatosConexion;
+import com.ad.mongoDB.MongoDBUtiles;
+import com.mongodb.DB;
 import java.io.File;
 
 /**
@@ -18,33 +18,16 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        final String datosArchivo = "Datos_driver.json";
+        final String datosArchivo = "Datos_conexion.json";
         
         try {
         
             //Cargar datos DB
-            DatosDriver datosDriver =
+            DatosConexion datosDriver =
                     JsonUtiles.leerArchivoJson(new File(datosArchivo));
 
-            //Crear hilo Guardar archivos
-            GardarArchivosDB gardarArchivosDB = new GardarArchivosDB();
-            gardarArchivosDB.setDatosDriver(datosDriver);
-            //Lanzar hilo
-            gardarArchivosDB.start();
-
-            //Parar ejecucion mientras se comprueban si existen tablas DB
-            try {
-                //Sleep 3 s
-                Thread.sleep(3000);
-            } catch (InterruptedException ex) {
-                System.err.println("Error al parar hilo.");
-            }
-            
-            //Lanzar escucha eventos
-            NotificacionesPostgresSQL notificacionesPostgresSQL = new NotificacionesPostgresSQL();
-            notificacionesPostgresSQL.setDatosDriver(datosDriver);
-            //Lanzar hilo
-            notificacionesPostgresSQL.start();
+            //Crear Conexion
+            DB db = MongoDBUtiles.crearConexionMongo(datosDriver);
             
         } catch (ADException e) {
             System.err.println(e.getDescripcionError());
