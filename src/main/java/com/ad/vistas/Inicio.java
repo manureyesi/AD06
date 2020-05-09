@@ -35,6 +35,11 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         butonLogin.setText("Login");
+        butonLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                butonLoginMouseClicked(evt);
+            }
+        });
 
         butonRexistro.setText("Rexistro");
         butonRexistro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -74,6 +79,13 @@ public class Inicio extends javax.swing.JFrame {
         Main.frameRexistro.setVisible(true);
         
     }//GEN-LAST:event_butonRexistroMouseClicked
+
+    private void butonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butonLoginMouseClicked
+        
+        Main.frameInicio.setVisible(false);
+        Main.frameLogin.setVisible(true);
+        
+    }//GEN-LAST:event_butonLoginMouseClicked
 
     /**
      * @param args the command line arguments

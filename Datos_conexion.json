@@ -1,5 +1,5 @@
 {
-    "address":"192.168.56.1",
+    "address":"192.168.8.200",
     "port":"27017",
     "dbname":"minitwitter",
     "username":"accesoADatos",
