@@ -72,21 +72,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver t&#xf3;dalas mensaxes"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="butonVerMensaxesMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butonVerMensaxesUsuarios">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver mensaxes de usuarios que sigo"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="butonVerMensaxesUsuariosMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butonBuscarHashTag">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar por hashtag"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="butonBuscarHashTagMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butonEscribirMensaxe">
       <Properties>
         <Property name="text" type="java.lang.String" value="Escribir unha mensaxe"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="butonEscribirMensaxeMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butonBuscarUsuario">
       <Properties>

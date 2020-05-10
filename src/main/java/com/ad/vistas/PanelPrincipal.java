@@ -10,12 +10,10 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author manureyesi
+ * PanelPrincipal
  */
 public class PanelPrincipal extends javax.swing.JFrame {
 
-    public static String nomeUsuario;
-    
     /**
      * Creates new form PanelPrincipal
      */
@@ -45,12 +43,32 @@ public class PanelPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         butonVerMensaxes.setText("Ver tódalas mensaxes");
+        butonVerMensaxes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                butonVerMensaxesMouseClicked(evt);
+            }
+        });
 
         butonVerMensaxesUsuarios.setText("Ver mensaxes de usuarios que sigo");
+        butonVerMensaxesUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                butonVerMensaxesUsuariosMouseClicked(evt);
+            }
+        });
 
         butonBuscarHashTag.setText("Buscar por hashtag");
+        butonBuscarHashTag.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                butonBuscarHashTagMouseClicked(evt);
+            }
+        });
 
         butonEscribirMensaxe.setText("Escribir unha mensaxe");
+        butonEscribirMensaxe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                butonEscribirMensaxeMouseClicked(evt);
+            }
+        });
 
         butonBuscarUsuario.setText("Buscar Usuario");
         butonBuscarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -118,6 +136,43 @@ public class PanelPrincipal extends javax.swing.JFrame {
         Main.frameBuscarUsuarios.setVisible(true);
         
     }//GEN-LAST:event_butonBuscarUsuarioMouseClicked
+
+    private void butonEscribirMensaxeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butonEscribirMensaxeMouseClicked
+        
+        Main.framePanelPrincipal.setVisible(false);
+        Main.frameCrearMensajes.setVisible(true);
+        
+    }//GEN-LAST:event_butonEscribirMensaxeMouseClicked
+
+    private void butonVerMensaxesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butonVerMensaxesMouseClicked
+        
+        Main.framePanelPrincipal.setVisible(false);
+        Main.frameVerMensaxes.setVisible(true);
+        
+        //Asociar operacion
+        Main.frameVerMensaxes.verTodosMensaxes = Boolean.TRUE;
+        
+    }//GEN-LAST:event_butonVerMensaxesMouseClicked
+
+    private void butonVerMensaxesUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butonVerMensaxesUsuariosMouseClicked
+        
+        Main.framePanelPrincipal.setVisible(false);
+        Main.frameVerMensaxes.setVisible(true);
+        
+        //Asociar operacion
+        Main.frameVerMensaxes.verTodosMensaxes = Boolean.FALSE;
+        
+    }//GEN-LAST:event_butonVerMensaxesUsuariosMouseClicked
+
+    private void butonBuscarHashTagMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butonBuscarHashTagMouseClicked
+        
+        Main.framePanelPrincipal.setVisible(false);
+        Main.frameVerMensaxes.setVisible(true);
+        
+        //Asociar operacion
+        Main.frameVerMensaxes.verTodosMensaxes = Boolean.TRUE;
+        
+    }//GEN-LAST:event_butonBuscarHashTagMouseClicked
 
     /**
      * @param args the command line arguments

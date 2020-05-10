@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author manureyesi
+ * Login
  */
 public class Login extends javax.swing.JFrame {
 
@@ -38,6 +38,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         botonLogin = new javax.swing.JButton();
         textoError = new javax.swing.JLabel();
+        botonSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,13 @@ public class Login extends javax.swing.JFrame {
         botonLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonLoginMouseClicked(evt);
+            }
+        });
+
+        botonSair.setText("Sair");
+        botonSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonSairMouseClicked(evt);
             }
         });
 
@@ -69,6 +77,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(username)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(textoError, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -89,7 +99,9 @@ public class Login extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(textoError, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonLogin)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonLogin)
+                    .addComponent(botonSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -134,6 +146,16 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botonLoginMouseClicked
 
+    private void botonSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSairMouseClicked
+
+        //Limpiar textos
+        this.username.setText(StringUtils.EMPTY);
+        this.contrasinal.setText(StringUtils.EMPTY);
+        Main.frameLogin.setVisible(false);
+        Main.frameInicio.setVisible(true);
+
+    }//GEN-LAST:event_botonSairMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -171,6 +193,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonLogin;
+    private javax.swing.JButton botonSair;
     private javax.swing.JPasswordField contrasinal;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

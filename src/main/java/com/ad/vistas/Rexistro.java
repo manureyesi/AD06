@@ -12,7 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author manureyesi
+ * Rexistro
  */
 public class Rexistro extends javax.swing.JFrame {
 
@@ -41,6 +41,7 @@ public class Rexistro extends javax.swing.JFrame {
         contrasinal = new javax.swing.JPasswordField();
         botonRexistro = new javax.swing.JButton();
         textoError = new javax.swing.JLabel();
+        botonSair = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -56,6 +57,13 @@ public class Rexistro extends javax.swing.JFrame {
         botonRexistro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonRexistroMouseClicked(evt);
+            }
+        });
+
+        botonSair.setText("Sair");
+        botonSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonSairMouseClicked(evt);
             }
         });
 
@@ -78,6 +86,8 @@ public class Rexistro extends javax.swing.JFrame {
                             .addComponent(nombreCompleto)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonSair, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botonRexistro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(textoError, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -102,8 +112,10 @@ public class Rexistro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(textoError, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonRexistro)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonRexistro)
+                    .addComponent(botonSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,6 +162,17 @@ public class Rexistro extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonRexistroMouseClicked
 
+    private void botonSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSairMouseClicked
+        
+        //Limpiar textos
+        this.nombreCompleto.setText(StringUtils.EMPTY);
+        this.username.setText(StringUtils.EMPTY);
+        this.contrasinal.setText(StringUtils.EMPTY);
+        Main.frameRexistro.setVisible(false);
+        Main.frameInicio.setVisible(true);
+        
+    }//GEN-LAST:event_botonSairMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -187,6 +210,7 @@ public class Rexistro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRexistro;
+    private javax.swing.JButton botonSair;
     private javax.swing.JPasswordField contrasinal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

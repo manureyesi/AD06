@@ -8,6 +8,9 @@ package com.ad.vistas;
 import com.ad.ad06.Main;
 import com.ad.exception.ADException;
 import com.ad.mongoDB.UsuarioUtiles;
+import com.ad.mongoDB.vo.Usuario;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -15,7 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author manureyesi
+ * BuscarUsuarios
  */
 public class BuscarUsuarios extends javax.swing.JFrame {
 
@@ -141,6 +144,7 @@ public class BuscarUsuarios extends javax.swing.JFrame {
 
     private void butonSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butonSairMouseClicked
         
+        this.usuarioBuscar.setText(StringUtils.EMPTY);
         Main.framePanelPrincipal.setVisible(true);
         Main.frameBuscarUsuarios.setVisible(false);
         
@@ -163,16 +167,20 @@ public class BuscarUsuarios extends javax.swing.JFrame {
         
             try {
             
-                List<String> listaUsuarios =
+                List<Usuario> listaUsuarios =
                         UsuarioUtiles.buscarUsuarios(this.usuarioBuscar.getText());
                 
                 DefaultListModel modelo = new DefaultListModel();
-                for (String user: listaUsuarios) {
-                    
-                    modelo.addElement(user);
+                List<String> listaUsuariosAux = new ArrayList<>();
+                for (Usuario user: listaUsuarios) {
+                    //Mostrar todos los usuarios menos el propio
+                    if (!user.getUsername().equals(Main.nomeUsuario)) {
+                        modelo.addElement(user.getUsername());
+                        listaUsuariosAux.add(user.getUsername());
+                    }
                 }
                 this.listaUsuarios.setModel(modelo);
-                this.boxUsuariosSeguir.setModel(new DefaultComboBoxModel(listaUsuarios.toArray()));
+                this.boxUsuariosSeguir.setModel(new DefaultComboBoxModel(listaUsuariosAux.toArray()));
                 this.boxUsuariosSeguir.setEnabled(true);
                 
             } catch (ADException e) {

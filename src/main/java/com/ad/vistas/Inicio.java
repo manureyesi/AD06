@@ -9,7 +9,7 @@ import com.ad.ad06.Main;
 
 /**
  *
- * @author manureyesi
+ * Inicio
  */
 public class Inicio extends javax.swing.JFrame {
 
