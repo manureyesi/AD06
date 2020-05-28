@@ -1,5 +1,6 @@
 package com.ad.mongoDB.vo;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
 public class Mensaxe {
     
     private String texto;
-    private String date;
+    private Date date;
     private String nome;
     private String username;
     private List<String> hashtags; 
@@ -17,7 +18,7 @@ public class Mensaxe {
     public Mensaxe() {
     }
 
-    public Mensaxe(String texto, String date, String nome, String username, List<String> hashtags) {
+    public Mensaxe(String texto, Date date, String nome, String username, List<String> hashtags) {
         this.texto = texto;
         this.date = date;
         this.nome = nome;
@@ -33,11 +34,11 @@ public class Mensaxe {
         this.texto = texto;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

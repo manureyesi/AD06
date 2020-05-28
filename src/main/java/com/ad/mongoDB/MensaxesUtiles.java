@@ -21,7 +21,6 @@ import com.mongodb.client.model.Sorts;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 import org.bson.BsonDocument;
 import org.bson.conversions.Bson;
 
@@ -62,7 +61,7 @@ public class MensaxesUtiles {
         DBObject mensaxeDB = new BasicDBObject()
                 .append(TEXTO, mensaxe)
                 .append(USUARIO, usuarioDB)
-                .append(FECHA, new Date().toString())
+                .append(FECHA, new Date())
                 .append(HASHTAGS, hashtags);
         
         //Insertar Usuario
@@ -93,6 +92,7 @@ public class MensaxesUtiles {
             cursor.close();
         
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ADException("Error al buscar hashtag.");
         }
         
@@ -126,7 +126,7 @@ public class MensaxesUtiles {
             cursor.close();
             
         } catch (Exception e) {
-            throw new ADException("Error al buscar usuario.");
+            throw new ADException("Error al buscar Mensajes.");
         }
     
         return listaMensaxes;
@@ -166,7 +166,7 @@ public class MensaxesUtiles {
         
         return new Mensaxe(
             (String)documento.get(TEXTO),
-            (String)documento.get(FECHA),
+            (Date)documento.get(FECHA),
             (String)((DBObject)documento.get(USUARIO)).get(NOME_COMPLETO),
             (String)((DBObject)documento.get(USUARIO)).get(USUARIO_NOME_USUARIO),
             (List)documento.get(HASHTAGS)); 
